@@ -27,11 +27,11 @@
 import React, { ReactNode, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-interface ProtectedRouteProps {
+type ProtectedRouteProps = {
   children: ReactNode;
-}
+};
 
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     }
   }, [router]);
 
-  return <>{children as ReactNode}</>;
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;
